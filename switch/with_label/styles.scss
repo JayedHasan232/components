@@ -1,0 +1,76 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.order_type_switcher{
+    position: relative;
+    height: 56px;
+
+    input{
+        position: relative;
+        width: 200px;
+        height: 50px;
+        border-radius: 25px;
+        outline: none;
+        appearance: none;
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        background: #2dab21;
+
+        &:before,&:after{
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+        &:before{
+            content: "Instant";
+            left: 30px;
+        }
+        &:after{
+            content: "Scheduled";
+            right: 20px;
+        }
+    }
+    
+    label{
+        z-index: 1;
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        border-radius: 20px;
+    }
+}
+.order_type_switcher.order_type_switcher-1 input:checked:before{
+    color: #2dab21;
+    transition: color 0.5s 0.2s;
+}
+.order_type_switcher.order_type_switcher-1 input:not(:checked):before{
+    color: #fff;
+    transition: color 0.5s;
+}
+.order_type_switcher.order_type_switcher-1 input:checked:after{
+    color: #fff;
+    transition: color 0.5s;
+}
+.order_type_switcher-1 input:not(:checked):after{
+    color: #2dab21;
+    transition: color 0.5s 0.2s;
+}
+.order_type_switcher.order_type_switcher-1 input:checked + label{
+    left: 10px;
+    right: 100px;
+    background: #fff;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+.order_type_switcher.order_type_switcher-1 input:not(:checked) + label{
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+}
